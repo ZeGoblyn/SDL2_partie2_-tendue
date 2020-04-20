@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 			//------------------------------------------------------------------------------------------------//
 			//Tilemapping
 
-			char* table[] = {
+			char* table[] = {						//Disposition des tiles
 				"000000000000000000000000000000",
 				"000000000000000000000000000000",
 				"000000000000000000000000000000",
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 			int continuer = 1, tempsPrecedent = 0, tempsActuel = 0;
 			int statut = EXIT_FAILURE;
 
-			tileset = IMG_Load("tileset1.bmp");
+			tileset = IMG_Load("tileset1.bmp");				//Insertion du tileset
 			if (tileset == NULL)
 			{
 				fprintf(stderr, "Erreur chargement image droite : %s", SDL_GetError());
@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
 				}
 
 					nTempsActuel = SDL_GetTicks();
-					if (nTempsActuel > nTempsPrecedent + nDeltaTime)  //On effectue l'affichage à chaque frame.
+					if (nTempsActuel > nTempsPrecedent + nDeltaTime)  //Affichage des frames
 					{
 						Afficher(pRenderer, textuTil, table, NOMBRE_BLOCS_LARGEUR, NOMBRE_BLOCS_HAUTEUR, xBase, yBase);
 						nTempsPrecedent = nTempsActuel;
@@ -147,7 +147,7 @@ void Afficher(SDL_Renderer* pRenderer, SDL_Texture* textuTil, char** table, int 
 	Rect_dest.w = LARGEUR_TILE;
 	Rect_source.h = HAUTEUR_TILE;
 	Rect_dest.h = HAUTEUR_TILE;
-	for (i = xBase; i < NOMBRE_BLOCS_LARGEUR + xBase; i++) //On commence à i = x pour arriver à NOMBRE_BLOCS_LARGEUR + x
+	for (i = xBase; i < NOMBRE_BLOCS_LARGEUR + xBase; i++) //i = x pour arriver à NOMBRE_BLOCS_LARGEUR + x
 	{
 		for (j = yBase; j < NOMBRE_BLOCS_HAUTEUR + yBase; j++)
 		{
